@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/dealDB
+    url: jdbc:mysql://localhost:3306/dealDB?useSSL=false
     username: root
     password:
     platform: mysql

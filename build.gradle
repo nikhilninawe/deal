@@ -38,12 +38,6 @@ dependencies {
     testCompile("junit:junit")
     // https://mvnrepository.com/artifact/mysql/mysql-connector-java
 	compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.5'
-	// https://mvnrepository.com/artifact/org.hibernate/hibernate-core
-	// https://mvnrepository.com/artifact/org.quartz-scheduler/quartz
-	compile group: 'org.quartz-scheduler', name: 'quartz', version: '2.2.1'
-	// https://mvnrepository.com/artifact/com.jcraft/jsch
-	compile group: 'com.jcraft', name: 'jsch', version: '0.1.54'
-	// https://mvnrepository.com/artifact/org.springframework/spring-context-support
 	compile group: 'org.springframework', name: 'spring-context-support', version: '4.3.6.RELEASE'
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     // https://mvnrepository.com/artifact/net.sf.opencsv/opencsv

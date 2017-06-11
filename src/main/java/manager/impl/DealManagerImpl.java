@@ -108,7 +108,7 @@ public class DealManagerImpl implements DealManager{
     }
 
     public void summarize(Map<String, Long> currencyCountMap, DealFile dealFile){
-        Long invalidData = currencyCountMap.get(null);
+        Long invalidData = invalidDataRepository.countByDealFile_FileName(dealFile.getFileName());
         final AtomicLong validData = new AtomicLong();
         currencyCountMap.keySet()
                         .parallelStream()
@@ -123,16 +123,7 @@ public class DealManagerImpl implements DealManager{
                         });
 
 
-//        for(Deal currency : currencyCountMap.keySet()){
-//            CurrencyDealCount currencyDealCount = currencyDealCountRepository.findByCurrencyCode(currency.getOrderingCurrency());
-//            if(currencyDealCount == null){
-//                currencyDealCount = new CurrencyDealCount(currency.getOrderingCurrency(), 0L);
-//            }
-//            currencyDealCount.setDealCount(currencyDealCount.getDealCount() + currencyCountMap.get(currency));
-//            currencyDealCountRepository.save(currencyDealCount);
-//            validData += currencyCountMap.get(currency);
-//        }
-        dealFile.setStatus("Valid records " + validData.get() + "; Invalid Records " + invalidData);
+        dealFile.setStatus("Valid records " + validData.get() + "; Invalid Records " + (invalidData == null? 0:invalidData));
         dealFileRepository.save(dealFile);
     }
 

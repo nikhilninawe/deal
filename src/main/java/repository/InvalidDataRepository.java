@@ -8,4 +8,5 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface InvalidDataRepository extends CrudRepository<InvalidData, Long>{
 
+    Long countByDealFile_FileName(String fileName);
 }
