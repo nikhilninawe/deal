@@ -8,6 +8,8 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.MySQLDialect
     show-sql: false
+    hibernate:
+      ddl-auto: create
   http:
     multipart:
       max-file-size: 100MB
@@ -16,7 +18,7 @@ spring:
 spring:
   profiles: container
   datasource:
-    url: jdbc:mysql://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}
+    url: jdbc:mysql://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}?useSSL=false
     username: ${DATABASE_USER}
     password: ${DATABASE_PASSWORD}
-    initialize: true
+    initialize: false
